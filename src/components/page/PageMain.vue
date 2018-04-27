@@ -1,6 +1,5 @@
 <template>
 <div>
-    <!-- <KouteniHeader></KouteniHeader> -->
 </div>
 </template>
 <script>
@@ -12,6 +11,7 @@ export default {
   name: 'PageMain',
   data () {
     return {
+      helloMsg: ''
     }
   }
 }

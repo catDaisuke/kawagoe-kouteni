@@ -16,6 +16,7 @@
 </template>
 <script>
 import KouteniHeader from '@/components/header/KouteniHeader.vue'
+import axios from 'axios'
 export default {
   components: {
     KouteniHeader
@@ -23,8 +24,22 @@ export default {
   name: 'PageMemberList',
   data () {
     return {
-      memberList: [{id: 'simazaki', name: '島崎'}, {id: 'nakajo', name: '中條'}]
+      memberList: null
     }
+  },
+  created: function () {
+    console.log('create')
+    let that = this
+    axios.get(`https://kawagoe-kouteni-webapp.herokuapp.com/member`)
+      .then(response => {
+        // JSON responses are automatically parsed.
+        console.log(response.data)
+        that.$data.memberList = response.data
+      })
+      .catch(e => {
+        alert('test')
+        console.log(e)
+      })
   }
 }
 </script>
