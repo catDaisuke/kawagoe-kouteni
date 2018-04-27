@@ -11,7 +11,7 @@ pipelines:
         caches:
           - node
         script: # Modify the commands below to build your repository.
-          #- npm install
-          #- npm test
+          - npm install
+          - npm test
           #- git push https://heroku:d33f57a1-bfc4-4981-b189-51d265589aaa@git.heroku.com/kawagoe-kouteni.git HEAD
           #- git subtree push --prefix=dist https://github.com/catDaisuke/kawagoe-kouteni.git HEAD
