@@ -3,7 +3,7 @@
 
   <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-  <b-navbar-brand href="#">川越高校硬式テニス同好会</b-navbar-brand>
+  <b-navbar-brand href="#">川越高校硬式テニス同好会2006-2009</b-navbar-brand>
 
   <b-collapse is-nav id="nav_collapse">
 
