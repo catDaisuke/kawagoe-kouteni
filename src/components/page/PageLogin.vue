@@ -32,7 +32,7 @@
 </div>
 </template>
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+// import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
   components: {
   },
@@ -43,11 +43,11 @@ export default {
       password: null
     }
   },
-  computed: {
-    ...mapState(['id'])
-  },
   methods: {
     login: function () {
+      this.$store.commit({
+        type: 'ADD_USERID',
+        id: this.$data.id })
       console.log(this.$data.id)
       console.log(this.$store.state.id)
     }

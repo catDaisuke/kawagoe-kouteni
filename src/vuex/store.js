@@ -4,11 +4,18 @@ import * as types from './mutation-types'
 Vue.use(Vuex)
 
 const state = {
-  id: 'idtest'
+  id: null
 }
 const actions = {}
 const getters = {}
-const mutations = {}
+const mutations = {
+  [types.ADD_USERID] (state, payload) {
+    state.id = payload.id
+  },
+  [types.REMOVE_USERID] (state) {
+    state.id = null
+  }
+}
 
 export default new Vuex.Store({
   state,
