@@ -5,9 +5,19 @@
         <b-col sm="2">
         </b-col>
         <b-col sm="8">
-            <b-list-group>
-                <b-list-group-item v-for="member in memberList" :key="member.id">{{member.name}}</b-list-group-item>
-            </b-list-group>
+            <!-- <b-list-group>
+                <b-list-group-item v-for="member in memberList" :key="member.memberId">{{member.memberNickName}}</b-list-group-item>
+            </b-list-group> -->
+            <b-card-group>
+              <b-card v-for="member in memberList" :key="member.memberId"
+               :title="member.memberNickName"
+               style="max-width: 20rem;"
+              >
+              <p class="card-text">
+                名前：{{member.memberFirstName}} {{member.memberLastName}}<br>
+              </p>
+              </b-card>
+            </b-card-group>
         </b-col>
         <b-col sm="2">
         </b-col>
@@ -35,6 +45,7 @@ export default {
         // JSON responses are automatically parsed.
         console.log(response.data)
         that.$data.memberList = response.data
+        console.log(that.$data.memberList)
       })
       .catch(e => {
         alert('test')

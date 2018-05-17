@@ -1,5 +1,6 @@
 <template>
 <div>
+  <h1>メインページ（コンテンツ未整理）</h1>
 </div>
 </template>
 <script>

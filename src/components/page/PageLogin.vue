@@ -50,6 +50,9 @@ export default {
         id: this.$data.id })
       console.log(this.$data.id)
       console.log(this.$store.state.id)
+
+      alert('APIを呼び出さずメンバー一覧画面に遷移')
+      this.$router.push('/memberList')
     }
   }
 }
