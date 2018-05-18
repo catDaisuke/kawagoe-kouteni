@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import PageMain from '@/components/page/PageMain'
 import PageMemberList from '@/components/page/PageMemberList'
 import PageLogin from '@/components/page/PageLogin'
+import PageRegist from '@/components/page/PageRegist'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/login',
       name: 'PageLogin',
       component: PageLogin
+    },
+    {
+      path: '/regist',
+      name: 'PageRegist',
+      component: PageRegist
     }
   ]
 })
