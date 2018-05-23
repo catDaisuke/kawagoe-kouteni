@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p>新規登録</p>
     <b-row>
         <b-col sm="2">
         </b-col>
@@ -86,7 +87,7 @@ export default {
   },
   methods: {
     regist: function () {
-      let that = this
+    //   let that = this
       axios.post(`https://kawagoe-kouteni-webapp.herokuapp.com/member/regist`, {
       })
         .then(response => {
