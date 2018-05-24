@@ -87,7 +87,17 @@ export default {
   methods: {
     regist: function () {
       let that = this
+      if( that.id == null || that.password == null || that.firstname == null || that.lastname == null || that.nickname == null || that.email == null) {
+        alert('入力項目に不備があります')
+        return
+      }
       axios.post(`https://kawagoe-kouteni-webapp.herokuapp.com/member/regist`, {
+        memberId: that.id,
+        memberPassword: that.password,
+        memberFirstName: that.firstname,
+        memberLastName: that.lastname,
+        memberNickName: that.nickname,
+        memberMailAddress: that.email
       })
         .then(response => {
           // JSON responses are automatically parsed.
