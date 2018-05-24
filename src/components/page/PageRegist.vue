@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p>新規登録</p>
     <b-row>
         <b-col sm="2">
         </b-col>
@@ -87,7 +88,7 @@ export default {
   methods: {
     regist: function () {
       let that = this
-      if( that.id == null || that.password == null || that.firstname == null || that.lastname == null || that.nickname == null || that.email == null) {
+      if (that.id == null || that.password == null || that.firstname == null || that.lastname == null || that.nickname == null || that.email == null) {
         alert('入力項目に不備があります')
         return
       }
@@ -102,6 +103,11 @@ export default {
         .then(response => {
           // JSON responses are automatically parsed.
           console.log(response.data)
+          alert('登録完了しました')
+          this.$store.commit({
+            type: 'ADD_USERID',
+            id: that.id })
+          this.$router.push('/memberList')
         })
         .catch(e => {
           alert('登録に失敗しました')

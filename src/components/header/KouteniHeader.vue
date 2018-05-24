@@ -27,14 +27,20 @@
         <!-- <b-dropdown-item href="#">FA</b-dropdown-item> -->
       <!-- </b-nav-item-dropdown> -->
 
-      <!-- <b-nav-item-dropdown right> -->
+      <div v-if="userId != null">
+      <b-nav-item-dropdown right>
         <!-- Using button-content slot -->
-        <!-- <template slot="button-content"> -->
-          <!-- <em>User</em> -->
-        <!-- </template> -->
-        <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
+        <template slot="button-content">
+          <em>{{ userId }}</em>
+        </template>
+        <b-dropdown-item v-on:click='logout'>ログアウト</b-dropdown-item>
         <!-- <b-dropdown-item href="#">Signout</b-dropdown-item> -->
-      <!-- </b-nav-item-dropdown> -->
+      </b-nav-item-dropdown>
+      </div>
+      <div v-else>
+        <b-btn v-on:click='login'>login</b-btn>
+        <b-btn v-on:click='regist'>新規登録</b-btn>
+      </div>
     </b-navbar-nav>
 
   </b-collapse>
@@ -47,6 +53,11 @@ export default {
     return {
     }
   },
+  computed: {
+    userId: function () {
+      return this.$store.state.id
+    }
+  },
   methods: {
     toHome: function () {
       if (this.$store.state.id === null) {
@@ -54,6 +65,17 @@ export default {
       } else {
         this.$router.push('/main')
       }
+    },
+    login: function () {
+      this.$router.push('/login')
+    },
+    regist: function () {
+      this.$router.push('/regist')
+    },
+    logout: function () {
+      this.$store.commit({
+        type: 'REMOVE_USERID'})
+      this.$router.push('/login')
     }
   }
 }

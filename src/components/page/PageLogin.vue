@@ -1,5 +1,6 @@
 <template>
 <div>
+  <p>ログイン</p>
     <b-row>
         <b-col sm="2">
         </b-col>
@@ -42,6 +43,10 @@ export default {
       id: null,
       password: null
     }
+  },
+  created: function () {
+    this.$store.commit({
+      type: 'REMOVE_USERID'})
   },
   methods: {
     login: function () {
