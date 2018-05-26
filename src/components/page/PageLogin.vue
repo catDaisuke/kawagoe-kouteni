@@ -34,6 +34,7 @@
 </template>
 <script>
 // import { mapState, mapActions, mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
   components: {
   },
@@ -50,14 +51,30 @@ export default {
   },
   methods: {
     login: function () {
-      this.$store.commit({
-        type: 'ADD_USERID',
-        id: this.$data.id })
-      console.log(this.$data.id)
-      console.log(this.$store.state.id)
+      if (this.$data.id == null || this.$data.password == null) {
+        alert('idもしくはパスワードが不正です')
+        return
+      }
 
-      alert('APIを呼び出さずメンバー一覧画面に遷移')
-      this.$router.push('/memberList')
+      var that = this
+      var param = {
+        id: this.$data.id,
+        password: this.$data.password
+      }
+      axios.get(`https://kawagoe-kouteni-webapp.herokuapp.com/member/login`, {
+        params: param
+      })
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.$store.commit({
+            type: 'ADD_USERID',
+            id: that.id })
+          this.$router.push('/memberList')
+        })
+        .catch(e => {
+          alert(e.response.data.message)
+          console.log(e.response)
+        })
     }
   }
 }
