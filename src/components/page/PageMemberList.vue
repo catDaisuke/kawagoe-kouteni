@@ -10,6 +10,7 @@
             </b-list-group> -->
             <template v-if="vueMemberList != null">
               <b-row v-for="memberLists in vueMemberList">
+                <template v-if="memberLists.length === 3">
                 <b-col v-for="member in memberLists" :key="member.memberId">
                   <b-card
                     :title="member.memberNickName"
@@ -20,6 +21,34 @@
                   </p>
                   </b-card>
                 </b-col>
+                </template>
+                <template v-else-if="memberLists.length === 2">
+                <b-col v-for="member in memberLists" :key="member.memberId">
+                  <b-card
+                    :title="member.memberNickName"
+                    style="max-width: 20rem;"
+                  >
+                  <p class="card-text">
+                    名前：{{member.memberFirstName}} {{member.memberLastName}}<br>
+                  </p>
+                  </b-card>
+                </b-col>
+                <b-col></b-col>
+                </template>
+                <template v-else>
+                <b-col v-for="member in memberLists" :key="member.memberId">
+                  <b-card
+                    :title="member.memberNickName"
+                    style="max-width: 20rem;"
+                  >
+                  <p class="card-text">
+                    名前：{{member.memberFirstName}} {{member.memberLastName}}<br>
+                  </p>
+                  </b-card>
+                </b-col>
+                <b-col></b-col>
+                <b-col></b-col>
+                </template>
               </b-row>
             </template>
         </b-col>
@@ -64,7 +93,10 @@ export default {
     }
   },
   created: function () {
-    console.log('create')
+    if (this.$store.state.id === null) {
+      this.$router.push('/login')
+      return
+    }
     let that = this
     axios.get(`https://kawagoe-kouteni-webapp.herokuapp.com/member`)
       .then(response => {

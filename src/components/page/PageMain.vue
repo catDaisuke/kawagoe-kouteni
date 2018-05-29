@@ -14,6 +14,12 @@ export default {
     return {
       helloMsg: ''
     }
+  },
+  created: function () {
+    if (this.$store.state.id === null) {
+      this.$router.push('/login')
+      return
+    }
   }
 }
 </script>
