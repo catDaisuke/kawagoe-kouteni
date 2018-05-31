@@ -15,6 +15,7 @@
                   <b-card
                     :title="member.memberNickName"
                     style="max-width: 20rem;"
+                    v-on:click="toMemberInfo(member.memberId)"
                   >
                   <p class="card-text">
                     名前：{{member.memberFirstName}} {{member.memberLastName}}<br>
@@ -77,9 +78,7 @@ export default {
       }
       var vueMember = []
       var list = []
-      console.log(this.$data.memberList)
       for (var i = 0; i < this.$data.memberList.length; i++) {
-        console.log(list)
         if (i % 3 === 0 && i > 0) {
           vueMember.push(list)
           list = []
@@ -93,22 +92,28 @@ export default {
     }
   },
   created: function () {
-    if (this.$store.state.id === null) {
+    if (this.$store.state.user.id === null) {
       this.$router.push('/login')
       return
     }
     let that = this
     axios.get(`https://kawagoe-kouteni-webapp.herokuapp.com/member`)
       .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response.data)
         that.$data.memberList = response.data
-        console.log(that.$data.memberList)
       })
       .catch(e => {
         alert('test')
         console.log(e)
       })
+  },
+  methods: {
+    toMemberInfo: function (memberid) {
+      this.$store.commit({
+        type: 'ADD_MEMBERID',
+        id: memberid })
+      console.log(this.$store.state.memberInfo.id)
+      this.$router.push('/memberInfo')
+    }
   }
 }
 </script>

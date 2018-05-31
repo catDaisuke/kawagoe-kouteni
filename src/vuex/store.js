@@ -4,16 +4,29 @@ import * as types from './mutation-types'
 Vue.use(Vuex)
 
 const state = {
-  id: null
+  user: {
+    id: null,
+    password: null
+  },
+  memberInfo: {
+    id: null
+  }
 }
 const actions = {}
 const getters = {}
 const mutations = {
   [types.ADD_USERID] (state, payload) {
-    state.id = payload.id
+    state.user.id = payload.id
   },
   [types.REMOVE_USERID] (state) {
-    state.id = null
+    state.user.id = null
+    state.user.password = null
+  },
+  [types.ADD_PASSWORD] (state, payload) {
+    state.user.id = payload.id
+  },
+  [types.ADD_MEMBERID] (state, payload) {
+    state.memberInfo.id = payload.id
   }
 }
 

@@ -16,9 +16,8 @@ export default {
     }
   },
   created: function () {
-    if (this.$store.state.id === null) {
+    if (this.$store.state.user.id === null) {
       this.$router.push('/login')
-      return
     }
   }
 }

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import PageMain from '@/components/page/PageMain'
 import PageMemberList from '@/components/page/PageMemberList'
+import PageMemberInfo from '@/components/page/PageMemberInfo'
 import PageLogin from '@/components/page/PageLogin'
 import PageRegist from '@/components/page/PageRegist'
 
@@ -23,7 +24,14 @@ export default new Router({
     {
       path: '/memberList',
       name: 'PageMemberList',
-      component: PageMemberList
+      component: PageMemberList,
+      props: true
+    },
+    {
+      path: '/memberInfo',
+      name: 'PageMemberInfo',
+      component: PageMemberInfo,
+      props: true
     },
     {
       path: '/login',
