@@ -1,10 +1,19 @@
 <template>
 <div>
-    <h3>{{ member.memberNickName }}</h3>
+    <!-- <h3>{{ member.memberNickName }}</h3> -->
     <b-row>
         <b-col sm="2">
         </b-col>
         <b-col sm="8">
+          <b-card v-bind:title="member.memberNickName">
+            <p class="card-text">
+              {{ member.memberFirstName }} {{ member.memberLastName }}<br>
+            <!-- </p>
+            <p class="card-text"> -->
+              {{ member.memberBirthYear }}年 {{ member.memberBirthMonth }}月 {{ member.memberBirthDay }}日 生まれ<br>
+              {{ member.memberBloodtype }}型<br>
+            </p>
+          </b-card>
         </b-col>
         <b-col sm="2">
         </b-col>
