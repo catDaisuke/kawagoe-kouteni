@@ -6,6 +6,7 @@ import PageMemberList from '@/components/page/PageMemberList'
 import PageMemberInfo from '@/components/page/PageMemberInfo'
 import PageLogin from '@/components/page/PageLogin'
 import PageRegist from '@/components/page/PageRegist'
+import PageChangeInfo from '@/components/page/PageChangeInfo'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
       path: '/regist',
       name: 'PageRegist',
       component: PageRegist
+    },
+    {
+      path: '/changeInfo',
+      name: 'PageChangeInfo',
+      component: PageChangeInfo
     }
   ]
 })
