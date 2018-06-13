@@ -1,12 +1,9 @@
 <template>
 <div id="memberList">
     <h3>メンバー一覧</h3>
-    <b-container>
+    <b-container fluid>
     <b-row>
         <b-col align-self="center">
-            <!-- <b-list-group>
-                <b-list-group-item v-for="member in memberList" :key="member.memberId">{{member.memberNickName}}</b-list-group-item>
-            </b-list-group> -->
             <b-container>
             <template v-if="vueMemberList != null">
               <b-row v-for="memberLists in vueMemberList" class="mb-3">

@@ -1,7 +1,7 @@
 <template>
 <div>
     <!-- <h3>{{ member.memberNickName }}</h3> -->
-    <b-container>
+    <b-container fluid>
     <b-row>
         <b-col align-self="center">
           <b-card no-body v-bind:title="member.memberNickName">

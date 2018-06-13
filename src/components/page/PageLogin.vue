@@ -1,10 +1,9 @@
 <template>
 <div>
   <p>ログイン</p>
+  <b-container fluid>
     <b-row>
-        <b-col sm="2">
-        </b-col>
-        <b-col sm="8">
+        <b-col align-self="center">
             <div>
                 <b-form-group id="loginid"
                     horizontal
@@ -27,9 +26,8 @@
             </div>
             <b-button v-on:click="login">login</b-button>
         </b-col>
-         <b-col sm="2">
-        </b-col>
     </b-row>
+  </b-container>
 </div>
 </template>
 <script>
