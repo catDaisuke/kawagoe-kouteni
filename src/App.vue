@@ -2,7 +2,9 @@
   <div id="app">
     <KouteniHeader></KouteniHeader>
     <!-- <img src="./assets/logo.png"> -->
+    <b-container>
     <router-view/>
+    </b-container>
   </div>
 </template>
 
