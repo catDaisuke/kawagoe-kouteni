@@ -69,6 +69,10 @@ export default {
           this.$store.commit({
             type: 'ADD_USERID',
             id: that.id })
+          this.$store.commit({
+            type: 'ADD_PASSWORD',
+            password: that.password
+          })
           this.$router.push('/memberList')
         })
         .catch(e => {

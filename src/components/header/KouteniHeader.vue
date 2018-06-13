@@ -34,6 +34,8 @@
           <em>{{ userId }}</em>
         </template>
         <b-dropdown-item v-on:click='logout'>ログアウト</b-dropdown-item>
+        <b-dropdown-item v-on:click='changeInfo'>登録情報変更</b-dropdown-item>
+
         <!-- <b-dropdown-item href="#">Signout</b-dropdown-item> -->
       </b-nav-item-dropdown>
       </div>
@@ -55,12 +57,12 @@ export default {
   },
   computed: {
     userId: function () {
-      return this.$store.state.id
+      return this.$store.state.user.id
     }
   },
   methods: {
     toHome: function () {
-      if (this.$store.state.id === null) {
+      if (this.$store.state.user.id === null) {
         this.$router.push('/login')
       } else {
         this.$router.push('/main')
@@ -76,6 +78,9 @@ export default {
       this.$store.commit({
         type: 'REMOVE_USERID'})
       this.$router.push('/login')
+    },
+    changeInfo: function () {
+      this.$router.push('/changeinfo')
     }
   }
 }

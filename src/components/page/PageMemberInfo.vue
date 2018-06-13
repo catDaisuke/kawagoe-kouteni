@@ -1,12 +1,35 @@
 <template>
 <div>
-    <h3>{{ member.memberNickName }}</h3>
+    <!-- <h3>{{ member.memberNickName }}</h3> -->
     <b-row>
-        <b-col sm="2">
+        <b-col sm="3">
         </b-col>
-        <b-col sm="8">
+        <b-col sm="6">
+          <b-card no-body v-bind:title="member.memberNickName">
+            <b-card-body class="card-text">
+              <p class="card-text" v-if="member.memberIntroduction != null">
+                {{ member.memberIntroduction }}
+              </p>
+              <p v-else class="card-text">
+                紹介文はまだありません。
+              </p>
+            </b-card-body>
+              <b-list-group flush>
+                <b-list-group-item>
+                  {{ member.memberFirstName }} {{ member.memberLastName }}
+                </b-list-group-item>
+            <!-- </p>
+            <p class="card-text"> -->
+                <b-list-group-item>
+                  {{ member.memberBirthYear }}年 {{ member.memberBirthMonth }}月 {{ member.memberBirthDay }}日 生まれ
+                </b-list-group-item>
+                <b-list-group-item>
+                  {{ member.memberBloodtype }}型
+                </b-list-group-item>
+              </b-list-group>
+          </b-card>
         </b-col>
-        <b-col sm="2">
+        <b-col sm="3">
         </b-col>
     </b-row>
 </div>
@@ -22,12 +45,6 @@ export default {
   data () {
     return {
       member: null
-    }
-  },
-  props: {
-    memberid: {
-      type: String,
-      defalut: 'catDaisuke'
     }
   },
   created: function () {

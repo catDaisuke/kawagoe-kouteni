@@ -23,7 +23,7 @@ const mutations = {
     state.user.password = null
   },
   [types.ADD_PASSWORD] (state, payload) {
-    state.user.id = payload.id
+    state.user.password = payload.password
   },
   [types.ADD_MEMBERID] (state, payload) {
     state.memberInfo.id = payload.id
