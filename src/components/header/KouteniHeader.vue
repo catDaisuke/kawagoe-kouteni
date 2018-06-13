@@ -1,5 +1,5 @@
 <template>
-<b-navbar toggleable="md" type="dark" variant="info">
+<b-navbar toggleable="md" type="dark" variant="info" class="kouteni-header">
 
   <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
@@ -85,3 +85,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.kouteni-header{
+  font-size:1rem;
+}
+</style>

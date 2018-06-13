@@ -1,15 +1,15 @@
 <template>
-<div>
+<div id="memberList">
     <h3>メンバー一覧</h3>
+    <b-container>
     <b-row>
-        <b-col sm="2">
-        </b-col>
-        <b-col sm="8">
+        <b-col align-self="center">
             <!-- <b-list-group>
                 <b-list-group-item v-for="member in memberList" :key="member.memberId">{{member.memberNickName}}</b-list-group-item>
             </b-list-group> -->
+            <b-container>
             <template v-if="vueMemberList != null">
-              <b-row v-for="memberLists in vueMemberList">
+              <b-row v-for="memberLists in vueMemberList" class="mb-3">
                 <template v-if="memberLists.length === 3">
                 <b-col v-for="member in memberLists" :key="member.memberId">
                   <b-card
@@ -52,10 +52,10 @@
                 </template>
               </b-row>
             </template>
-        </b-col>
-        <b-col sm="2">
+            </b-container>
         </b-col>
     </b-row>
+    </b-container>
 </div>
 </template>
 <script>
@@ -117,3 +117,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+#memberList {
+  font-size: 1rem;
+}
+.card-title {
+  font-size:1rem;
+}
+</style>

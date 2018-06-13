@@ -2,9 +2,9 @@
   <div id="app">
     <KouteniHeader></KouteniHeader>
     <!-- <img src="./assets/logo.png"> -->
-    <b-container>
+    <div class="main-contents">
     <router-view/>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -27,5 +27,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
+  font-size:1rem;
+}
+
+.main-contents {
+  margin:1rem;
 }
 </style>

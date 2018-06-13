@@ -1,10 +1,9 @@
 <template>
 <div>
     <!-- <h3>{{ member.memberNickName }}</h3> -->
+    <b-container>
     <b-row>
-        <b-col sm="3">
-        </b-col>
-        <b-col sm="6">
+        <b-col align-self="center">
           <b-card no-body v-bind:title="member.memberNickName">
             <b-card-body class="card-text">
               <p class="card-text" v-if="member.memberIntroduction != null">
@@ -29,9 +28,8 @@
               </b-list-group>
           </b-card>
         </b-col>
-        <b-col sm="3">
-        </b-col>
     </b-row>
+    </b-container>
 </div>
 </template>
 <script>
